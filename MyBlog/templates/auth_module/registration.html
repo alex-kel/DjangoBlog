@@ -3,8 +3,12 @@
 <body>
 	<h1>Registration</h1>
 	<div class="form-container">
-		<form>
-			
+		<form action="{% url 'auth_module:registration' %}" method="post">
+            {% csrf_token %}
+            <input type="text" name="login" placeholder="login"><br>
+            <input type="email" name="email" placeholder="email"><br>
+            <input type="password" name="password" placeholder="password"><br>
+            <input type="submit" value="Sign Up!">
 		</form>
 	</div>
 	<a href="{% url 'auth_module:index' %}">You can sign in</a>
