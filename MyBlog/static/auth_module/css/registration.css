@@ -1,0 +1,17 @@
+html {
+    font-family: Tahoma;
+}
+
+.form-container {
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form-container * {
+    margin-top: 10px;
+}
+
+.log_ref {
+    float: right;
+}

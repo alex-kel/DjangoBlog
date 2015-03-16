@@ -1,16 +1,21 @@
+{% load staticfiles %}
 <html>
-<head></head>
+<head>
+    <link rel="stylesheet" href="{% static 'all/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'auth_module/css/registration.css' %}">
+</head>
 <body>
-	<h1>Registration</h1>
 	<div class="form-container">
-		<form action="{% url 'auth_module:registration' %}" method="post">
+		<h1>Registration</h1>
+        <form action="{% url 'auth_module:registration' %}" method="post">
             {% csrf_token %}
-            <input type="text" name="login" placeholder="login"><br>
-            <input type="email" name="email" placeholder="email"><br>
-            <input type="password" name="password" placeholder="password"><br>
-            <input type="submit" value="Sign Up!">
+            <input class="form-control" type="text" name="login" placeholder="login">
+            <input class="form-control" type="email" name="email" placeholder="email">
+            <input class="form-control" type="password" name="password" placeholder="password">
+            <input class="btn btn-default" type="submit" value="Sign Up!">
+            <a class="log_ref" href="{% url 'auth_module:index' %}">You can sign in</a>
 		</form>
 	</div>
-	<a href="{% url 'auth_module:index' %}">You can sign in</a>
+
 </body>
 </html>
