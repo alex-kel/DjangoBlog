@@ -12,6 +12,13 @@ html {
     margin-top: 10px;
 }
 
+.error {
+    width: 400px;
+    background-color: lightpink;
+    text-align: center;
+    border-radius: 5px;
+}
+
 .log_ref {
     float: right;
 }

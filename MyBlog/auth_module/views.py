@@ -30,10 +30,16 @@ def registration(request):
         username = request.POST['login']
         email = request.POST['email']
         password = request.POST['password']
-        user = User.objects.create_user(username, email, password);
-        user.save()
-        return render(request, 'auth_module/login.html')
-
+        c_password = request.POST['c_password']
+        if password == c_password:
+            try:
+                user = User.objects.create_user(username, email, password);
+                user.save()
+                return render(request, 'auth_module/login.html')
+            except ValueError as e:
+                return render(request, 'auth_module/registration.html', {'error' : e.__str__()})
+        else:
+            return render(request, 'auth_module/registration.html', {'error' : 'Passwords doesn`t match!'})
 
 def log_out_action(request):
     logout(request)
